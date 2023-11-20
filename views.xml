@@ -1,3 +1,60 @@
 <odoo>
 
+    <record id="cerveza_action" model="ir.actions.act_window">
+        <field name="name">Action cerveza</field>
+        <field name="res_model">cerveceria.cerveza</field>
+        <field name="view_mode">tree,form</field>   
+    </record>
+
+    <record id="cerveza_tree" model="ir.ui.view">
+        <field name="name">cerveza.tree</field>
+        <field name="model">cerveceria.cerveza</field>
+        <field name="arch" type="xml">
+            <tree string="cerveza">
+                <field name="tipo"/>
+                <field name="name" />
+                <field name="descripcion" />
+                <field name="cantidad_alcohol" />
+                <field name="precio_unidad" />
+                <field name="volumen_unidad" />
+                <field name="cantidad_inventario" />
+                <field name="disponible" />
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="cerveza_form" model="ir.ui.view">
+        <field name="name">cerveza.form</field>
+        <field name="model">cerveceria.cerveza</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="tipo"/>
+                        <field name="name" />
+                        <field name="descripcion" />
+                        <field name="cantidad_alcohol" />
+                        <field name="precio_unidad" />
+                        <field name="volumen_unidad" />
+                        <field name="cantidad_inventario" />
+                        <field name="disponible" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem
+        id="cerveceria"
+        name="cerveceria"
+        sequence="10" />
+
+    <menuitem
+        id="cerveza_menu"
+        name="Cerveza"
+        action="cerveza_action"
+        parent="cerveceria"/>
+    
+
 </odoo>
