@@ -48,6 +48,25 @@
         </field>
     </record>
 
+    <record id="cerveza_search" model="ir.ui.view">
+        <field name="name">cerveza.search</field>
+        <field name="model">cerveceria.cerveza</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="tipo"/>
+                <field name="name" />
+                <field name="descripcion" />
+                <field name="cantidad_alcohol" />
+                <field name="precio_unidad" />
+                <field name="volumen_unidad" />
+                <field name="lote_id" />
+                <field name="ingrediente_id" />
+                <field name="distribuidor_id" />
+                <filter name="disponible" string="Disponible" domain="[('disponible','=',True)]"/>
+            </search>
+        </field>
+    </record>
+
     <record id="lote_action" model="ir.actions.act_window">
         <field name="name">Lote</field>
         <field name="res_model">cerveceria.lote</field>
