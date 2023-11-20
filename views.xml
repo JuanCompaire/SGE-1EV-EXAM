@@ -19,7 +19,9 @@
                 <field name="volumen_unidad" />
                 <field name="cantidad_inventario" />
                 <field name="disponible" />
-
+                <field name="lote_id" />
+                <field name="ingrediente_id" />
+                <field name="distribuidor_id" />
             </tree>
         </field>
     </record>
@@ -39,6 +41,9 @@
                         <field name="volumen_unidad" />
                         <field name="cantidad_inventario" />
                         <field name="disponible" />
+                        <field name="lote_id" />
+                        <field name="ingrediente_id" />
+                        <field name="distribuidor_id" />
                     </group>
                 </sheet>
             </form>
@@ -61,6 +66,7 @@
                 <field name="fecha_estimada_fin" />
                 <field name="cantidad_producida" />
                 <field name="estado" />
+                <field name="empaquetado_id" />
             </tree>
         </field>
     </record>
@@ -77,6 +83,7 @@
                         <field name="fecha_estimada_fin" />
                         <field name="cantidad_producida" />
                         <field name="estado" />
+                        <field name="empaquetado_id" />
                     </group>
                 </sheet>
             </form>
