@@ -174,6 +174,42 @@
         </field>
     </record>
 
+    <record id="distribuidor_action" model="ir.actions.act_window">
+        <field name="name">Distribuidor</field>
+        <field name="res_model">cerveceria.distribuidor</field>
+        <field name="view_mode">tree,form</field>   
+    </record>
+
+    <record id="distribuidor_tree" model="ir.ui.view">
+        <field name="name">distribuidor.tree</field>
+        <field name="model">cerveceria.distribuidor</field>
+        <field name="arch" type="xml">
+            <tree string="distribuidor">
+                <field name="name" />
+                <field name="direccion" />
+                <field name="telefono" />
+                <field name="cerveza_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="distribuidor_form" model="ir.ui.view">
+        <field name="name">distribuidor.form</field>
+        <field name="model">cerveceria.distribuidor</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="direccion" />
+                        <field name="telefono" />
+                        <field name="cerveza_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <menuitem
         id="cerveceria"
         name="cerveceria"
@@ -201,6 +237,12 @@
         id="empaquetado_menu"
         name="Empaquetado"
         action="empaquetado_action"
+        parent="cerveceria"/>
+
+    <menuitem   
+        id="distribuidor_menu"
+        name="Distribuidor"
+        action="distribuidor_action"
         parent="cerveceria"/>
     
 

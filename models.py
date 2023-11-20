@@ -14,6 +14,7 @@ class Cerveza(models.Model):
     disponible = fields.Boolean(string="Disponible")
     lote_id = fields.One2many(comodel_name='cerveceria.lote', inverse_name='cerveza_id', string="Lote")
     ingrediente_id = fields.Many2many(comodel_name='cerveceria.ingrediente', inverse_name='cerveza_id', string="Ingrediente")
+    distribuidor_id = fields.Many2one(comodel_name='cerveceria.distribuidor', inverse_name='cerveza_id', string="Distribuidor")
 
 class Lote(models.Model):
     _name = 'cerveceria.lote'
@@ -52,3 +53,12 @@ class Empaquetado(models.Model):
     fecha_empaquetado = fields.Date(string="Fecha de empaquetado")
     cantidad_empaquetada = fields.Integer(string="Cantidad empaquetada")
     lote_id = fields.One2many(comodel_name='cerveceria.lote',inverse_name='empaquetado_id', string="Lote")
+
+class Distribuidor(models.Model):
+    _name = 'cerveceria.distribuidor'
+    _description = 'cerveceria.distribuidor'
+
+    name = fields.Char(string="Nombre")
+    direccion = fields.Char(string="Direccion")
+    telefono = fields.Char(string="Telefono")
+    cerveza_id = fields.One2many(comodel_name='cerveceria.cerveza',inverse_name='distribuidor_id', string="Cerveza")
