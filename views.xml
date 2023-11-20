@@ -11,7 +11,7 @@
         <field name="model">cerveceria.cerveza</field>
         <field name="arch" type="xml">
             <tree string="cerveza">
-                <field name="tipo"/>
+                <field name="tipo" />
                 <field name="name" />
                 <field name="descripcion" />
                 <field name="cantidad_alcohol" />
@@ -48,7 +48,7 @@
         </field>
     </record>
 
-    <record id="cerveza_search" model="ir.ui.view">
+    <record id="disponibilidad_search" model="ir.ui.view">
         <field name="name">cerveza.search</field>
         <field name="model">cerveceria.cerveza</field>
         <field name="arch" type="xml">
@@ -67,7 +67,6 @@
             </search>
         </field>
     </record>
-
 
     <record id="lote_action" model="ir.actions.act_window">
         <field name="name">Lote</field>
