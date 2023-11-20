@@ -1,7 +1,7 @@
 <odoo>
 
     <record id="cerveza_action" model="ir.actions.act_window">
-        <field name="name">Action cerveza</field>
+        <field name="name">Cerveza</field>
         <field name="res_model">cerveceria.cerveza</field>
         <field name="view_mode">tree,form</field>   
     </record>
@@ -45,6 +45,55 @@
         </field>
     </record>
 
+    <record id="lote_action" model="ir.actions.act_window">
+        <field name="name">Lote</field>
+        <field name="res_model">cerveceria.lote</field>
+        <field name="view_mode">tree,form,calendar</field>   
+    </record>
+
+    <record id="lote_tree" model="ir.ui.view">
+        <field name="name">lote.tree</field>
+        <field name="model">cerveceria.lote</field>
+        <field name="arch" type="xml">
+            <tree string="lote">
+                <field name="cerveza_id" />
+                <field name="fecha_inicio_produccion" />
+                <field name="fecha_estimada_fin" />
+                <field name="cantidad_producida" />
+                <field name="estado" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="lote_form" model="ir.ui.view">
+        <field name="name">lote.form</field>
+        <field name="model">cerveceria.lote</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="cerveza_id" />
+                        <field name="fecha_inicio_produccion" />
+                        <field name="fecha_estimada_fin" />
+                        <field name="cantidad_producida" />
+                        <field name="estado" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="lote_calendar" model="ir.ui.view">
+        <field name="name">lote.calendar</field>
+        <field name="model">cerveceria.lote</field>
+        <field name="arch" type="xml">
+            <calendar string="lote" date_start="fecha_inicio_produccion" date_stop="fecha_estimada_fin">
+                <field name="cerveza_id" />
+                
+            </calendar>
+        </field>
+    </record>
+
     <menuitem
         id="cerveceria"
         name="cerveceria"
@@ -54,6 +103,12 @@
         id="cerveza_menu"
         name="Cerveza"
         action="cerveza_action"
+        parent="cerveceria"/>
+
+    <menuitem
+        id="lote_menu"
+        name="Lote"
+        action="lote_action"
         parent="cerveceria"/>
     
 

@@ -12,3 +12,18 @@ class Cerveza(models.Model):
     volumen_unidad = fields.Float(string="Volumen por unidad (ml)")
     cantidad_inventario = fields.Integer(string="Cantidad en inventario")
     disponible = fields.Boolean(string="Disponible")
+    lote_id = fields.One2many(comodel_name='cerveceria.lote', inverse_name='cerveza_id', string="Lote")
+
+class Lote(models.Model):
+    _name = 'cerveceria.lote'
+    _description = 'cerveceria.lote'
+
+    fecha_inicio_produccion = fields.Date(string="Fecha de inicio de produccion")
+    fecha_estimada_fin = fields.Date(string="Fecha estimada de fin")
+    cantidad_producida = fields.Integer(string="Cantidad producida")
+    estado = fields.Selection([
+        ('En proceso', 'en proceso'),
+        ('Completo', 'completo'),
+        ('En espera de empaquetado', 'en espera de empaquetado'),
+        ], string="Estado")
+    cerveza_id = fields.Many2one(comodel_name='cerveceria.cerveza',inverse_name='lote_id', string="Cerveza")
