@@ -63,9 +63,11 @@
                 <field name="ingrediente_id" />
                 <field name="distribuidor_id" />
                 <filter name="disponible" string="Disponible" domain="[('disponible','=',True)]"/>
+                <filter name="no_disponible" string="No disponible" domain="[('disponible','=',False)]"/>
             </search>
         </field>
     </record>
+
 
     <record id="lote_action" model="ir.actions.act_window">
         <field name="name">Lote</field>
