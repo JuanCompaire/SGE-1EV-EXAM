@@ -10,7 +10,6 @@ class Cerveza(models.Model):
     cantidad_alcohol = fields.Float(string="Cantidad de alcohol (%)")
     precio_unidad = fields.Float(string="Precio por unidad")
     volumen_unidad = fields.Float(string="Volumen por unidad (ml)")
-    cantidad_inventario = fields.Integer(string="Cantidad en inventario")
     disponible = fields.Boolean(string="Disponible")
     lote_id = fields.One2many(comodel_name='cerveceria.lote', inverse_name='cerveza_id', string="Lote")
     ingrediente_id = fields.Many2many(comodel_name='cerveceria.ingrediente', inverse_name='cerveza_id', string="Ingrediente")
