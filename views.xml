@@ -130,6 +130,50 @@
         </field>
     </record>
 
+    <record id="empaquetado_action" model="ir.actions.act_window">
+        <field name="name">Empaquetado</field>
+        <field name="res_model">cerveceria.empaquetado</field>
+        <field name="view_mode">tree,form,calendar</field>   
+    </record>
+
+    <record id="empaquetado_tree" model="ir.ui.view">
+        <field name="name">empaquetado.tree</field>
+        <field name="model">cerveceria.empaquetado</field>
+        <field name="arch" type="xml">
+            <tree string="empaquetado">
+                <field name="lote_id" />
+                <field name="fecha_empaquetado" />
+                <field name="cantidad_empaquetada" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="empaquetado_form" model="ir.ui.view">
+        <field name="name">empaquetado.form</field>
+        <field name="model">cerveceria.empaquetado</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="lote_id" />
+                        <field name="fecha_empaquetado" />
+                        <field name="cantidad_empaquetada" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="empaquetado_calendar" model="ir.ui.view">
+        <field name="name">empaquetado.calendar</field>
+        <field name="model">cerveceria.empaquetado</field>
+        <field name="arch" type="xml">
+            <calendar string="empaquetado" date_start="fecha_empaquetado" >
+                <field name="lote_id" />
+            </calendar>
+        </field>
+    </record>
+
     <menuitem
         id="cerveceria"
         name="cerveceria"
@@ -151,6 +195,12 @@
         id="ingrediente_menu"
         name="Ingrediente"
         action="ingrediente_action"
+        parent="cerveceria"/>
+
+    <menuitem
+        id="empaquetado_menu"
+        name="Empaquetado"
+        action="empaquetado_action"
         parent="cerveceria"/>
     
 
