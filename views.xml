@@ -94,6 +94,42 @@
         </field>
     </record>
 
+    <record id="ingrediente_action" model="ir.actions.act_window">
+        <field name="name">Ingrediente</field>
+        <field name="res_model">cerveceria.ingrediente</field>
+        <field name="view_mode">tree,form</field>   
+    </record>
+
+    <record id="ingrediente_tree" model="ir.ui.view">
+        <field name="name">ingrediente.tree</field>
+        <field name="model">cerveceria.ingrediente</field>
+        <field name="arch" type="xml">
+            <tree string="ingrediente">
+                <field name="name" />
+                <field name="tipo" />
+                <field name="cantidad_disponible" />
+                <field name="cerveza_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="ingrediente_form" model="ir.ui.view">
+        <field name="name">ingrediente.form</field>
+        <field name="model">cerveceria.ingrediente</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="tipo" />
+                        <field name="cantidad_disponible" />
+                        <field name="cerveza_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <menuitem
         id="cerveceria"
         name="cerveceria"
@@ -109,6 +145,12 @@
         id="lote_menu"
         name="Lote"
         action="lote_action"
+        parent="cerveceria"/>
+
+    <menuitem
+        id="ingrediente_menu"
+        name="Ingrediente"
+        action="ingrediente_action"
         parent="cerveceria"/>
     
 
